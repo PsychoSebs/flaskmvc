@@ -21,28 +21,48 @@ def show1():
 @login_required
 def show2():
     #myForm = UserData()
-    return render_template('2-artificial_intelligence.html')
+    data = {}
+    comments = getComments("AI")
+    for comment in comments:
+        data[comment.comment] = comment.record[0].user.username
+    return render_template('2-artificial_intelligence.html', data = data)
 
 @article_views.route('/3-bees', methods=['GET'])
 @login_required
 def show3():
     #myForm = UserData()
-    return render_template('3-bees.html')
+    data = {}
+    comments = getComments("Bees")
+    for comment in comments:
+        data[comment.comment] = comment.record[0].user.username
+    return render_template('3-bees.html', data = data)
 
 @article_views.route('/4-cyberbullying', methods=['GET'])
 @login_required
 def show4():
     #myForm = UserData()
-    return render_template('4-cyberbullying.html')
+    data = {}
+    comments = getComments("Cyber Bullying")
+    for comment in comments:
+        data[comment.comment] = comment.record[0].user.username
+    return render_template('4-cyberbullying.html',data = data)
 
 @article_views.route('/5-sleep', methods=['GET'])
 @login_required
 def show5():
     #myForm = UserData()
-    return render_template('5-sleep.html')
+    data = {}
+    comments = getComments("Sleep")
+    for comment in comments:
+        data[comment.comment] = comment.record[0].user.username
+    return render_template('5-sleep.html', data = data)
 
 @article_views.route('/6-stress', methods=['GET'])
 @login_required
 def show6():
     #myForm = UserData()
-    return render_template('6-stress.html')
+    data = {}
+    comments = getComments("Stress")
+    for comment in comments:
+        data[comment.comment] = comment.record[0].user.username
+    return render_template('6-stress.html',data = data)

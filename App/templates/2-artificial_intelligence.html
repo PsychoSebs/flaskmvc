@@ -23,6 +23,22 @@
 			 <br>
 			 <p>"Every organization that aspires to a data culture has to pick a place to start. Deep learning will make data accessible that previously was not; if that will create momentum, with a high chance of success, that is where you should start. For other organizations, better predictions and automation will beget a data culture. Regardless of which path you choose, the objective is the same: do data science faster."</p>
           </div>
+          {% if data | length > 0 %}
+          <div class = "card card2">
+            <div style="display:flex; flex-direction:column; color:aliceblue; width: 100%;">
+              <div style="display:flex; width: 100%;"> 
+                <h2 style="flex-grow:1; flex-basis: 0; margin: auto;">UserName</h2>
+                <h2 style="flex-grow:1 ; flex-basis: 0; margin: auto;">Comment</h2>
+              </div>
+            {% for comment,user in data.items() %}
+              <div style="display: flex; width: 100%; text-align: center;">
+                <span style="flex-grow:1; flex-basis: 0; margin: auto;">{{user}}</span>
+                <p style="flex-grow:1; flex-basis: 0; display:flex; flex-direction: column; height: fit-content; margin: auto; padding: 1.5em 0;">{{comment}}</p>
+              </div>      
+            {% endfor %} 
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
     {% endblock %}

@@ -17,20 +17,22 @@
                  <p>Excessive consumption of alcohol can pose a lot of risks for individuals and can have a lot of consequences which include but is not limited to, motor vehicle crashes, violence, injuries, unsafe sexual behaviour and chronic health conditions just to name a few.<p> 
              <p>How much alcohol, how quickly this alcohol is consumed and how often alcohol is consumed are factors which influence the risk of adverse health conditions and consequences which is why it is important to pay attention to how much alcohol is being consumed and consume alcohol in moderation.</p>
           </div>
+          {% if data | length > 0 %}
           <div class = "card card2">
-            <div style="display:flex; flex-direction:column; color:aliceblue; width: 100%; justify-content: center;">
-              <div style="display:flex; width: 20vw;"> 
+            <div style="display:flex; flex-direction:column; color:aliceblue; width: 100%;">
+              <div style="display:flex; width: 100%;"> 
                 <h2 style="flex-grow:1; flex-basis: 0; margin: auto;">UserName</h2>
                 <h2 style="flex-grow:1 ; flex-basis: 0; margin: auto;">Comment</h2>
               </div>
             {% for comment,user in data.items() %}
-              <div style="display: flex; width: 100%;">
+              <div style="display: flex; width: 100%; text-align: center;">
                 <span style="flex-grow:1; flex-basis: 0; margin: auto;">{{user}}</span>
                 <p style="flex-grow:1; flex-basis: 0; display:flex; flex-direction: column; height: fit-content; margin: auto; padding: 1.5em 0;">{{comment}}</p>
               </div>      
             {% endfor %} 
             </div>
           </div>
+          {% endif %}
         </div>
       </div>
     {% endblock %}

@@ -27,6 +27,22 @@
 			 <p>After doing so, one can look and self reflect on the ways they use to handle stress and identify whether it be positive or negative. Some of the negative ways strss is handled include smoking, dirnking and drug abuse, physical abuse, verbal abuse, sleeping too much or too little and even withdrawing from people including friends and family.  </p>
     
           </div>
+          {% if data | length > 0 %}
+          <div class = "card card2">
+            <div style="display:flex; flex-direction:column; color:aliceblue; width: 100%;">
+              <div style="display:flex; width: 100%;"> 
+                <h2 style="flex-grow:1; flex-basis: 0; margin: auto;">UserName</h2>
+                <h2 style="flex-grow:1 ; flex-basis: 0; margin: auto;">Comment</h2>
+              </div>
+            {% for comment,user in data.items() %}
+              <div style="display: flex; width: 100%; text-align: center;">
+                <span style="flex-grow:1; flex-basis: 0; margin: auto;">{{user}}</span>
+                <p style="flex-grow:1; flex-basis: 0; display:flex; flex-direction: column; height: fit-content; margin: auto; padding: 1.5em 0;">{{comment}}</p>
+              </div>      
+            {% endfor %} 
+            </div>
+          </div>
+          {% endif %}
         </div>
       </div>
     {% endblock %}
