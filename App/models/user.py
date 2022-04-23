@@ -1,19 +1,27 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 from App.database import db
+from sqlalchemy.dialects.postgresql import UUID
+from flask_login import UserMixin
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username =  db.Column(db.String, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+class User(db.Model,UserMixin):
+    id = db.Column(db.String(120), primary_key=True)
+    username =  db.Column(db.String(50), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120),unique=True, nullable=False)
+    record=db.relationship('UserRecords', backref='user', cascade='all, delete-orphan' , lazy='dynamic')
 
-    def __init__(self, username, password):
-        self.username = username
+    def __init__(self,id,username,email,password):
+        self.id=id
+        self.username=username
+        self.email=email
         self.set_password(password)
 
     def toDict(self):
         return{
             'id': self.id,
-            'username': self.username
+            'email': self.email,
+            'username': self.username,
+            'password': self.password
         }
 
     def set_password(self, password):

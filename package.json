@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "flask init",
-    "serve": "flask run",
+    "serve": "flask run --host=0.0.0.0",
     "prod-serve": "gunicorn -b 0.0.0.0:8080 -w 4 App.main:app"
   },
   "repository": {

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{{ super() }}
+
+
+    {% block content %}
+    <div class="contact-title">
+      <h1>Post-It</h1>
+      <h2>What do you have to add on the Topic</h2>
+    </div>
+    {% if current_user.is_authenticated %}
+    <section class="request">
+    <div class="signup-Form">
+     <form id="myForm" method="POST" action="/getData">
+            {{ myForm.csrf_token }}
+
+            <div>
+              <span>Choose a Topic</span>
+              {{ myForm.topic }}
+            </div>
+            
+
+            <div class="inputBox"> 
+              {{ myForm.comment(size=20, class="validate") }}
+              <!--{{ myForm.comment.label }}-->
+              <span>Comment</span>
+            </div>
+
+            <div>
+              {{myForm.submit}}
+              <a href="/showData">
+                <input class="btn"  type="button" onclick='' value="See Post">
+                </a>
+            </div> 
+        </form>
+      </div>
+    </section>
+    {% endif %}
+    {% endblock %}
+    
+
+    
+   

@@ -6,20 +6,28 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
 from datetime import timedelta
-
-
+#from App.views import login_manager
+from App.models import User
 from App.database import create_db, get_migrate
+
+
 
 from App.controllers import (
     setup_jwt
 )
 
 from App.views import (
+    article_views,
+    mainPage_views,
+    CommentData_views,
     user_views,
     api_views
 )
 
 views = [
+    article_views,
+    mainPage_views,
+    CommentData_views,
     user_views,
     api_views
 ]
@@ -59,4 +67,13 @@ def create_app(config={}):
     return app
 
 app = create_app()
+login_manager=LoginManager()
+login_manager.init_app(app)
 migrate = get_migrate(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(user_id)
+
+if __name__ == '__main__':
+ app.run(host='0.0.0.0', port=8080, debug=True)

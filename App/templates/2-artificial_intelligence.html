@@ -1,0 +1,28 @@
+{% extends "article_layout.html" %}
+{{ super() }}
+
+
+    {% block content %}
+    <div class="row">
+        <div class="col">
+          <h1>Artificial Intelligence</h1>
+          <div class="responsive">
+		  	<iframe style='display: block; margin: 0 auto;' width="580" height="350" src="https://www.ibm.com/blogs/think/2017/11/a-culture-of-data/" frameborder="0" allowfullscreen></iframe>
+			<iframe style='display: block; margin: 0 auto;' width="580" height="350" src="https://www.youtube.com/watch?v=fvtrRGmv7aU" frameborder="0" allowfullscreen></iframe>
+          
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card1">
+            <h4>The Importance of Creating a Culture of Data</h4>
+            <br>
+            <p>The linked blog post speaks to the importance of creating a culture of data.</p>
+             <p>Firstly, artificial intelligence, or AI for short, is a wide ranging branch of computer science which is concerned with building smart machines capable of performing tasks which would typically require human intelligence. <p> 
+             <p>It is to be noted that artificial intelligence requires machine learning and machine learning requires analytics. To work with analytics effectively, elegant data or information architecture (IA) is needed. </p>
+			 <p>When using artificial intelligence, the real success comes down to the organization's ability to adopt a culture which is focused or centered on data as a culture can be one an extremely powerful asset or an obstruction for a company or organization.</p>
+			 <br>
+			 <p>"Every organization that aspires to a data culture has to pick a place to start. Deep learning will make data accessible that previously was not; if that will create momentum, with a high chance of success, that is where you should start. For other organizations, better predictions and automation will beget a data culture. Regardless of which path you choose, the objective is the same: do data science faster."</p>
+          </div>
+        </div>
+      </div>
+    {% endblock %}

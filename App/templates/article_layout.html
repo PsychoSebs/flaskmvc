@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Neon Blog</title>
+	<link rel="stylesheet" type="text/css" href="static/article.css">
+	<link rel="stylesheet" type="text/css" href="lightslider.css">
+	
+
+	</script>
+	<script type="text/javascript" src="lightslider.js">
+
+	</script>
+
+</head>
+
+<body>
+
+	<div class="banner">
+		<header>
+			<div class="banner">
+				<a class="logo" href="/">Neon Blog</a>
+				<div class="navbar">
+
+					<ul>
+
+						<li><a href="/mainPage">Home</a></li>
+						<li><a href="/dataForm">Post Area</a></li>
+						<li><a href="/logout">Logout</a></li>
+
+					</ul>
+
+				</div>
+			</div>
+		</header>
+	</div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <nav class="white black-text" style="padding: 10px">
+      <div class="nav-wrapper">
+          <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+      </div>
+    </nav>
+    {% endif %}
+    {% endwith %}
+
+    <div class="container" id="content">{% block content %}{% endblock %}</div>
+
+  </section>	
+  <script type="text/javascript" src="script.js"></script>	
+</body>
+
+<footer>
+  <h4>© 2022-2022, NeonBlog.com</h4>
+  </footer>	
+  
+</html>

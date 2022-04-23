@@ -1,10 +1,10 @@
 import click
 from flask import Flask
 from flask.cli import with_appcontext, AppGroup
-
+import uuid
 from App.database import create_db
 from App.main import app, migrate
-from App.controllers import ( create_user, get_all_users_json, get_all_users )
+from App.controllers import ( create_user, get_all_users_json, get_all_users, getComments )
 
 # This commands file allow you to create convenient CLI commands
 # for testing controllers
@@ -44,6 +44,12 @@ def list_user_command(format):
         print(get_all_users_json())
 
 app.cli.add_command(user_cli) # add the group to the cli
+
+@app.cli.command("comments")
+@click.argument("topic")
+def displayComments(topic):
+    for comment in getComments(topic):
+        print(comment.topic, comment.comment)
 
 
 '''

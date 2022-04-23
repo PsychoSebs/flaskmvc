@@ -5,6 +5,63 @@
 {{ super() }}
 
 {% block content %}
-    <h1>Flask MVC</h1>
-    <p>This is a boileplate flask application which follows the MVC pattern for structuring the project.</p>
+
+<section class="section_1">
+<h2>Article Listings</h2>
+<div class="wrapper">
+    
+<div class="card">
+    <img src="../static/images/cyber_bullying2.gif">
+    <div class="info">
+            <h1>Cyber Bullying</h1>
+            <a href="/4-cyberbullying" class="btn">View Item</a>
+        </div>
+    </div>
+
+<div class="card">
+    <img src="../static/images/alcohol.gif">
+    <div class="info">
+            <h1>Rethinking Drinking Habits</h1>
+            <a href="/1-alcohol" class="btn">View Item</a>
+        </div>
+    </div>  
+
+<div class="card">
+    <img src="../static/images/stress.gif">
+    <div class="info">
+            <h1>Stress</h1>
+            <a href="/6-stress" class="btn">View Item</a>
+        </div>
+    </div>
+</section>
+<! ––-------------------------------------------------------------------------------------------------------- ––>
+<section class="section_2">
+    <div class="wrapper">
+
+<div class="card">
+    <img src="../static/images/sleep.gif">
+        <div class="info">
+            <h1>Sleep Addiction</h1>
+            <a href="/5-sleep" class="btn">View Item</a>
+        </div>
+    </div>
+    
+
+<div class="card">
+    <img src="../static/images/ai.gif">
+    <div class="info">
+            <h1>Artifical Intelligence</h1>
+            <a href="/2-artificial_intelligence" class="btn">View Item</a>
+        </div>
+    </div>	
+
+<div class="card">
+    <img src="../static/images/bee.gif">
+    <div class="info">
+            <h1>An Environmental KeyStone</h1>
+            <a href="/3-bees" class="btn">View Item</a>
+        </div>
+    </div>	
+</section>
+
 {% endblock %}

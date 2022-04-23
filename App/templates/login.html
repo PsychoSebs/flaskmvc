@@ -1,0 +1,32 @@
+{% extends "signup_layout.html" %}
+{{ super() }}
+
+  
+  {% block content %}
+  <div class="contact-title">
+	  <h1>Welcome Back Blogger</h1>
+  </div>
+
+  <section class="request">
+  <div class="signup-Form">
+     <form id="myLoginForm" method="POST" action="/loginUser">
+            {{ myForm.csrf_token }}
+            <div class="inputBox"> 
+              {{ myForm.username(size=20, class="validate") }}
+              
+              <span>username</span>
+            </div>
+
+            <div class="inputBox">
+              {{ myForm.password(size=20, class="validate") }}
+              <!--{{ myForm.password.label }}-->
+              <span>Password</span>
+            </div>
+
+            <div>
+              {{myForm.submit}}
+            </div> 
+        </form>
+    </div>
+  </section>
+    {% endblock %}
